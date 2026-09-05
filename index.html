@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nomane Belouahchi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #080c18;
+    --surface:  #111827;
+    --surface2: #1a2035;
+    --blue:     #4f8ef7;
+    --violet:   #a78bfa;
+    --cyan:     #22d3ee;
+    --text:     #e8edf8;
+    --muted:    #8892a4;
+    --border:   #1e2d45;
+    --nav-w:    240px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ── NAV LATÉRALE ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--nav-w);
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .nav-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-title {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+  }
+
+  nav ul { list-style: none; flex: 1; }
+
+  nav ul li { margin-bottom: 0.15rem; }
+
+  nav ul li a {
+    display: block;
+    padding: 0.45rem 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: var(--text);
+    background: var(--surface2);
+  }
+
+  nav ul li a.active { color: var(--blue); }
+
+  .nav-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: background 0.15s;
+  }
+
+  nav ul li a.active .nav-dot { background: var(--blue); }
+
+  .nav-footer {
+    font-size: 0.72rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .nav-footer a { color: var(--blue); text-decoration: none; }
+
+  /* ── MAIN ── */
+  main {
+    margin-left: var(--nav-w);
+    min-height: 100vh;
+  }
+
+  section {
+    padding: 5rem 4rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 860px;
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .sec-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  p { color: var(--muted); max-width: 62ch; }
+
+  /* ── HERO ── */
+  #hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    max-width: none;
+  }
+
+  #hero-canvas {
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 560px; padding: 5rem 4rem; }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-status .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e;
+    flex-shrink: 0;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 52ch;
+    line-height: 1.7;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.15s, transform 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  .btn-primary { background: var(--blue); color: #fff; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 1.5rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 1px;
+    height: calc(100% - 6px);
+    background: var(--border);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 7px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 2px solid var(--blue);
+    flex-shrink: 0;
+  }
+
+  .tl-period {
+    font-size: 0.72rem;
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .tl-place {
+    font-size: 0.78rem;
+    color: var(--violet);
+    margin-bottom: 0.5rem;
+  }
+
+  .tl-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 58ch;
+  }
+
+  .tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  /* ── TAGS ── */
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    border: 1px solid;
+  }
+
+  .tag-blue   { background: rgba(79,142,247,.1); border-color: rgba(79,142,247,.3); color: #82aeff; }
+  .tag-violet { background: rgba(167,139,250,.1); border-color: rgba(167,139,250,.3); color: #c4b0ff; }
+  .tag-cyan   { background: rgba(34,211,238,.1); border-color: rgba(34,211,238,.3); color: #67e8f9; }
+  .tag-green  { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.3); color: #86efac; }
+  .tag-gray   { background: rgba(136,146,164,.1); border-color: rgba(136,146,164,.3); color: var(--muted); }
+
+  /* ── COMPÉTENCES ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .skill-group-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  /* ── PROJETS ── */
+  .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .project-card:hover { border-color: var(--blue); }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+    gap: 1rem;
+  }
+
+  .project-links { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+  .project-link {
+    font-size: 0.75rem;
+    color: var(--blue);
+    text-decoration: none;
+    border: 1px solid rgba(79,142,247,.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+
+  .project-link:hover { background: rgba(79,142,247,.1); }
+
+  .project-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  /* ── PUBLICATION ── */
+  .pub-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--violet);
+    border-radius: 0 10px 10px 0;
+    padding: 1.5rem;
+  }
+
+  .pub-venue {
+    font-size: 0.75rem;
+    color: var(--violet);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .pub-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  /* ── BÉNÉVOLAT & VOYAGES ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .info-card p { font-size: 0.83rem; margin-top: 0.35rem; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.15s;
+    display: block;
+  }
+
+  .contact-item:hover { border-color: var(--blue); }
+
+  .contact-item-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-item-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* ── HAMBURGER MOBILE ── */
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem; left: 1rem;
+    z-index: 200;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 18px; height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.2s;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav {
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+    }
+
+    nav.open { transform: translateX(0); }
+
+    .menu-toggle { display: flex; }
+
+    main { margin-left: 0; }
+
+    section { padding: 3.5rem 1.5rem; }
+
+    .hero-content { padding: 4rem 1.5rem 2.5rem; }
+
+    #hero-canvas { display: none; }
+
+    .skills-grid { grid-template-columns: 1fr; }
+
+    .grid-2 { grid-template-columns: 1fr; }
+
+    h1 { font-size: 2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV LATÉRALE -->
+<button class="menu-toggle" id="menuToggle" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<nav id="sidebar">
+  <div class="nav-brand">Nomane Belouahchi</div>
+  <div class="nav-title">Ingénieur logiciel &amp; développeur full-stack</div>
+  <ul>
+    <li><a href="#hero" class="active"><span class="nav-dot"></span>Accueil</a></li>
+    <li><a href="#parcours"><span class="nav-dot"></span>Parcours</a></li>
+    <li><a href="#competences"><span class="nav-dot"></span>Compétences</a></li>
+    <li><a href="#projets"><span class="nav-dot"></span>Projets</a></li>
+    <li><a href="#publication"><span class="nav-dot"></span>Publication IEEE</a></li>
+    <li><a href="#formations"><span class="nav-dot"></span>Formations</a></li>
+    <li><a href="#benevole"><span class="nav-dot"></span>Bénévolat</a></li>
+    <li><a href="#voyages"><span class="nav-dot"></span>Voyages</a></li>
+    <li><a href="#contact"><span class="nav-dot"></span>Contact</a></li>
+  </ul>
+  <div class="nav-footer">
+    <a href="https://github.com/Nomane033" target="_blank">GitHub</a> · Milan, Italie
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-status">
+        <span class="dot"></span>
+        Disponible — recherche un poste en France
+      </div>
+      <h1>Nomane<br>Belouahchi</h1>
+      <p class="hero-sub">
+        Ingénieur logiciel passionné par les graphiques 3D, le développement full-stack
+        et la vision par ordinateur. Double master en Géométrie &amp; Informatique Graphique,
+        publication IEEE, et expériences internationales.
+      </p>
+      <div class="hero-links">
+        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        <a href="https://github.com/Nomane033" class="btn btn-ghost" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section id="parcours">
+    <div class="sec-label">Parcours</div>
+    <h2>Études, stages &amp; expériences</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-period">2025 — en cours · Milan, Italie</div>
+        <h3>Développeur full-stack — Stage</h3>
+        <div class="tl-place">Modern Showroom</div>
+        <div class="tl-desc">Développement d'une marketplace B2B pour la mode wholesale. Migration complète de l'application de localStorage vers Supabase, avec gestion des politiques RLS et du schéma de base de données. Stack React / Vite / TypeScript / Tailwind CSS.</div>
+        <div class="tl-tags">
+          <span class="tag tag-blue">React</span>
+          <span class="tag tag-blue">TypeScript</span>
+          <span class="tag tag-blue">Tailwind CSS</span>
+          <span class="tag tag-cyan">Supabase</span>
+          <span class="tag tag-gray">Vite</span>
+          <span class="tag tag-gray">Vercel</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2023 – 2025</div>
+        <h3>Double Master — Géométrie &amp; Informatique Graphique</h3>
+        <div class="tl-place">Aix-Marseille Université &amp; USTHB Algérie</div>
+        <div class="tl-desc">Formation avancée en rendu temps réel, shaders GLSL, pipelines GPU, animation 3D, algorithmes géométriques et vision par ordinateur. Publication d'un article IEEE sur l'extraction de caractéristiques géométriques.</div>
+        <div class="tl-tags">
+          <span class="tag tag-violet">C++</span>
+          <span class="tag tag-violet">OpenGL / GLSL</span>
+          <span class="tag tag-violet">Open3D</span>
+          <span class="tag tag-cyan">OpenCV</span>
+          <span class="tag tag-gray">PyTorch</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2022 – 2023</div>
+        <h3>Apple Foundation Program</h3>
+        <div class="tl-place">Apple / Institution partenaire</div>
+        <div class="tl-desc">Programme intensif de développement iOS. Conception et développement d'applications mobiles en Swift et SwiftUI, avec approche orientée design et expérience utilisateur.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Swift</span>
+          <span class="tag tag-gray">SwiftUI</span>
+          <span class="tag tag-gray">iOS</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2020 – 2023</div>
+        <h3>Licence &amp; formations antérieures</h3>
+        <div class="tl-place">Informatique — Algérie</div>
+        <div class="tl-desc">Fondations en algorithmique, développement web et logiciel, bases de données. Premiers projets en C++, Java et développement web.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">C++</span>
+          <span class="tag tag-gray">Java</span>
+          <span class="tag tag-gray">SQL</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="competences">
+    <div class="sec-label">Compétences</div>
+    <h2>Domaines techniques</h2>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-label">Graphique 3D &amp; rendu</div>
+        <div class="skill-tags">
+          <span class="tag tag-violet">C++</span>
+          <span class="tag tag-violet">OpenGL</span>
+          <span class="tag tag-violet">GLSL / Shaders</span>
+          <span class="tag tag-violet">Pipelines GPU</span>
+          <span class="tag tag-violet">Animation 3D</span>
+          <span class="tag tag-violet">Open3D</span>
+          <span class="tag tag-violet">Unity</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Vision par ordinateur &amp; ML</div>
+        <div class="skill-tags">
+          <span class="tag tag-cyan">OpenCV</span>
+          <span class="tag tag-cyan">PyTorch</span>
+          <span class="tag tag-cyan">scikit-learn</span>
+          <span class="tag tag-cyan">Traitement d'images</span>
+          <span class="tag tag-cyan">Nuages de points</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Développement web full-stack</div>
+        <div class="skill-tags">
+          <span class="tag tag-blue">React</span>
+          <span class="tag tag-blue">TypeScript</span>
+          <span class="tag tag-blue">Tailwind CSS</span>
+          <span class="tag tag-blue">Vite</span>
+          <span class="tag tag-blue">Supabase</span>
+          <span class="tag tag-blue">Node.js</span>
+          <span class="tag tag-blue">SQL</span>
+          <span class="tag tag-blue">REST API</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Mobile &amp; autres</div>
+        <div class="skill-tags">
+          <span class="tag tag-green">Swift / SwiftUI</span>
+          <span class="tag tag-green">iOS</span>
+          <span class="tag tag-gray">Python</span>
+          <span class="tag tag-gray">Java</span>
+          <span class="tag tag-gray">Git / GitHub</span>
+          <span class="tag tag-gray">Vercel</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="grid-column: span 2;">
+        <div class="skill-group-label">Langues</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Français — natif</span>
+          <span class="tag tag-gray">Arabe — natif</span>
+          <span class="tag tag-gray">Anglais — professionnel</span>
+          <span class="tag tag-gray">Italien — en cours d'apprentissage</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="sec-label">Projets</div>
+    <h2>Ce que j'ai construit</h2>
+    <div class="projects-list">
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Modern Showroom — Marketplace B2B</h3>
+          <div class="project-links">
+            <a href="https://wholesale-marketplace-two.vercel.app" class="project-link" target="_blank">Demo</a>
+            <a href="https://github.com/Nomane033/wholesale-marketplace" class="project-link" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <p class="project-desc">Application web de vente en gros pour l'industrie de la mode. Migration complète de localStorage vers Supabase avec gestion fine des droits d'accès (RLS), catalogue produits, gestion des commandes et interface acheteur/vendeur.</p>
+        <div class="tl-tags">
+          <span class="tag tag-blue">React</span>
+          <span class="tag tag-blue">TypeScript</span>
+          <span class="tag tag-cyan">Supabase</span>
+          <span class="tag tag-blue">Tailwind CSS</span>
+          <span class="tag tag-gray">Vite</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Roller Coaster VR</h3>
+          <div class="project-links">
+            <a href="https://itch.io" class="project-link" target="_blank">itch.io</a>
+          </div>
+        </div>
+        <p class="project-desc">Expérience de réalité virtuelle immersive de montagnes russes, publiée sur itch.io. Développée avec Unity, exploitant des techniques de rendu temps réel et d'optimisation de scènes 3D pour une expérience VR fluide.</p>
+        <div class="tl-tags">
+          <span class="tag tag-violet">Unity</span>
+          <span class="tag tag-violet">C#</span>
+          <span class="tag tag-violet">VR</span>
+          <span class="tag tag-gray">Rendu temps réel</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Extraction de caractéristiques géométriques</h3>
+          <div class="project-links">
+            <a href="#publication" class="project-link">Publication IEEE</a>
+          </div>
+        </div>
+        <p class="project-desc">Projet de recherche académique ayant abouti à une publication IEEE. Développement d'algorithmes d'extraction de caractéristiques géométriques sur nuages de points 3D, combinant traitement géométrique et vision par ordinateur.</p>
+        <div class="tl-tags">
+          <span class="tag tag-violet">C++</span>
+          <span class="tag tag-cyan">Open3D</span>
+          <span class="tag tag-cyan">OpenCV</span>
+          <span class="tag tag-gray">Recherche</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PUBLICATION -->
+  <section id="publication">
+    <div class="sec-label">Publication scientifique</div>
+    <h2>Article IEEE</h2>
+    <div class="pub-card">
+      <div class="pub-venue">IEEE — Conférence internationale</div>
+      <h3>Geometric Feature Extraction on 3D Point Clouds</h3>
+      <p class="pub-desc">
+        Article de recherche portant sur l'extraction automatique de caractéristiques géométriques
+        à partir de nuages de points 3D. Travaux menés dans le cadre du Master en Géométrie
+        &amp; Informatique Graphique, à la croisée des algorithmes géométriques et de la vision
+        par ordinateur.
+      </p>
+      <div class="tl-tags" style="margin-top: 1rem;">
+        <span class="tag tag-violet">Géométrie computationnelle</span>
+        <span class="tag tag-cyan">Nuages de points</span>
+        <span class="tag tag-cyan">Open3D</span>
+        <span class="tag tag-gray">Recherche académique</span>
+      </div>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.8rem;">
+      <!-- Ajoute ici le DOI ou le lien IEEE quand tu l'as -->
+      Lien DOI / IEEE disponible sur demande.
+    </p>
+  </section>
+
+  <!-- FORMATIONS COMPLÉMENTAIRES -->
+  <section id="formations">
+    <div class="sec-label">Formations complémentaires</div>
+    <h2>Certifications &amp; programmes</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-period">2022 – 2023</div>
+        <h3>Apple Foundation Program</h3>
+        <div class="tl-place">Apple — Programme certifiant</div>
+        <div class="tl-desc">Formation intensive au développement d'applications iOS. Approche centrée sur le design thinking, Swift, SwiftUI, et les bonnes pratiques de l'écosystème Apple.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Swift</span>
+          <span class="tag tag-gray">SwiftUI</span>
+          <span class="tag tag-gray">Design Thinking</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">En continu</div>
+        <h3>Auto-formation &amp; veille technologique</h3>
+        <div class="tl-place">Machine learning, IA générative, outils no-code/AI</div>
+        <div class="tl-desc">Exploration des outils de génération vidéo par IA (InVideo AI, Pictory, HeyGen), des architectures de modèles de langage, et des tendances en informatique graphique.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">PyTorch</span>
+          <span class="tag tag-gray">IA générative</span>
+          <span class="tag tag-gray">Veille tech</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BÉNÉVOLAT -->
+  <section id="benevole">
+    <div class="sec-label">Engagement</div>
+    <h2>Bénévolat</h2>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>Tutorat académique</h3>
+        <p>Accompagnement d'étudiants en informatique sur des sujets comme les algorithmes, la programmation orientée objet et le développement web. Pédagogie adaptée au niveau de chaque étudiant.</p>
+        <div class="tl-tags" style="margin-top: 0.75rem;">
+          <span class="tag tag-gray">Enseignement</span>
+          <span class="tag tag-gray">C++</span>
+          <span class="tag tag-gray">Web</span>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>Communauté &amp; projets open</h3>
+        <p>Participation à des projets collaboratifs, partage de ressources techniques, et contribution à la communauté étudiante en informatique graphique.</p>
+        <div class="tl-tags" style="margin-top: 0.75rem;">
+          <span class="tag tag-gray">Open source</span>
+          <span class="tag tag-gray">Collaboration</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--muted);">
+      Tu peux compléter cette section avec des associations, événements ou missions spécifiques.
+    </p>
+  </section>
+
+  <!-- VOYAGES -->
+  <section id="voyages">
+    <div class="sec-label">Mobilité internationale</div>
+    <h2>Voyages &amp; expériences à l'étranger</h2>
+    <div class="grid-2">
+      <div class="info-card">
+        <h3>🇮🇹 Milan, Italie</h3>
+        <p>Stage de 5 mois chez Modern Showroom, dans le quartier Città Studi. Immersion complète dans l'environnement professionnel et culturel italien.</p>
+      </div>
+      <div class="info-card">
+        <h3>🇫🇷 Marseille, France</h3>
+        <p>Double diplôme à Aix-Marseille Université. Expérience de vie et d'études dans le cadre d'un master franco-algérien en cotutelle.</p>
+      </div>
+      <div class="info-card">
+        <h3>🇩🇿 Algérie</h3>
+        <p>Formation universitaire à l'USTHB, l'une des grandes écoles d'ingénieurs d'Algérie. Ancrage culturel fort et réseau académique solide.</p>
+      </div>
+      <div class="info-card">
+        <h3>🌍 Mobilité &amp; adaptabilité</h3>
+        <p>À l'aise pour naviguer de façon autonome dans des environnements nouveaux. Ouverture à des postes en France et à l'international.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sec-label">Contact</div>
+    <h2>Parlons-nous</h2>
+    <p style="margin-bottom: 1.5rem;">Je suis actuellement en recherche d'emploi en France. N'hésitez pas à me contacter pour toute opportunité.</p>
+    <div class="contact-grid">
+      <a href="mailto:nomane.belouahchi@gmail.com" class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value">nomane.belouahchi<br>@gmail.com</div>
+      </a>
+      <a href="https://github.com/Nomane033" class="contact-item" target="_blank">
+        <div class="contact-item-label">GitHub</div>
+        <div class="contact-item-value">Nomane033</div>
+      </a>
+      <a href="https://linkedin.com" class="contact-item" target="_blank">
+        <div class="contact-item-label">LinkedIn</div>
+        <div class="contact-item-value">Ajoute ton profil LinkedIn ici</div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-item-label">Localisation</div>
+        <div class="contact-item-value">Milan → France<br>(dispo dès fin du stage)</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// ── CANVAS HERO (grille géométrique animée, hommage OpenGL) ──
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, points = [], animId;
+
+function resize() {
+  W = canvas.width  = canvas.offsetWidth;
+  H = canvas.height = canvas.offsetHeight;
+}
+
+function initPoints() {
+  points = [];
+  const cols = 14, rows = 10;
+  for (let i = 0; i <= cols; i++) {
+    for (let j = 0; j <= rows; j++) {
+      points.push({
+        x: (i / cols) * W,
+        y: (j / rows) * H,
+        ox: (i / cols) * W,
+        oy: (j / rows) * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 12,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+}
+
+function draw(t) {
+  ctx.clearRect(0, 0, W, H);
+  const t0 = t * 0.0004;
+
+  points.forEach(p => {
+    p.x = p.ox + Math.sin(t0 + p.phase) * 18;
+    p.y = p.oy + Math.cos(t0 * 0.7 + p.phase) * 12;
+  });
+
+  const cols = 14;
+  // Lignes horizontales
+  for (let j = 0; j <= 10; j++) {
+    ctx.beginPath();
+    for (let i = 0; i <= cols; i++) {
+      const p = points[i * 11 + j];
+      i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+    }
+    ctx.strokeStyle = 'rgba(79,142,247,0.18)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Lignes verticales
+  for (let i = 0; i <= cols; i++) {
+    ctx.beginPath();
+    for (let j = 0; j <= 10; j++) {
+      const p = points[i * 11 + j];
+      j === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y);
+    }
+    ctx.strokeStyle = 'rgba(167,139,250,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Points aux intersections
+  points.forEach((p, i) => {
+    if (i % 7 === 0) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(79,142,247,0.5)';
+      ctx.fill();
+    }
+  });
+
+  animId = requestAnimationFrame(draw);
+}
+
+resize();
+initPoints();
+requestAnimationFrame(draw);
+window.addEventListener('resize', () => { resize(); initPoints(); });
+
+// ── NAV ACTIVE SCROLL ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+function updateActive() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', updateActive, { passive: true });
+
+// ── MOBILE MENU ──
+const toggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+
+toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+
+sidebar.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => sidebar.classList.remove('open'));
+});
+</script>
+</body>
+</html>
