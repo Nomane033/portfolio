@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
     line-height: 1.65;
   }
 
-  /* ── NAV LATÉRALE ── */
+  /* ── SIDE NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0;
@@ -138,7 +138,7 @@
     line-height: 1.1;
     letter-spacing: -0.03em;
     color: var(--text);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.6rem;
   }
 
   h2 {
@@ -200,6 +200,14 @@
     background: #22c55e;
     box-shadow: 0 0 6px #22c55e;
     flex-shrink: 0;
+  }
+
+  .hero-role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
   }
 
   .hero-sub {
@@ -292,6 +300,9 @@
     max-width: 58ch;
   }
 
+  .tl-desc ul { margin: 0.4rem 0 0 1.1rem; padding: 0; }
+  .tl-desc li { margin-bottom: 0.2rem; }
+
   .tl-tags {
     display: flex;
     flex-wrap: wrap;
@@ -315,7 +326,7 @@
   .tag-green  { background: rgba(34,197,94,.1); border-color: rgba(34,197,94,.3); color: #86efac; }
   .tag-gray   { background: rgba(136,146,164,.1); border-color: rgba(136,146,164,.3); color: var(--muted); }
 
-  /* ── COMPÉTENCES ── */
+  /* ── SKILLS ── */
   .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -340,7 +351,7 @@
 
   .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
-  /* ── PROJETS ── */
+  /* ── PROJECTS ── */
   .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
 
   .project-card {
@@ -357,8 +368,16 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.2rem;
     gap: 1rem;
+  }
+
+  .project-period {
+    font-size: 0.72rem;
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .project-links { display: flex; gap: 0.5rem; flex-shrink: 0; }
@@ -407,7 +426,7 @@
     line-height: 1.6;
   }
 
-  /* ── BÉNÉVOLAT & VOYAGES ── */
+  /* ── STRENGTHS & INTERNATIONAL ── */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
   .info-card {
@@ -418,6 +437,21 @@
   }
 
   .info-card p { font-size: 0.83rem; margin-top: 0.35rem; }
+
+  .strengths-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .strength-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.83rem;
+    color: var(--text);
+  }
 
   /* ── CONTACT ── */
   .contact-grid {
@@ -451,7 +485,7 @@
     color: var(--text);
   }
 
-  /* ── HAMBURGER MOBILE ── */
+  /* ── MOBILE HAMBURGER ── */
   .menu-toggle {
     display: none;
     position: fixed;
@@ -509,27 +543,29 @@
 </head>
 <body>
 
-<!-- NAV LATÉRALE -->
+<!-- MOBILE NAV -->
 <button class="menu-toggle" id="menuToggle" aria-label="Menu">
   <span></span><span></span><span></span>
 </button>
 
 <nav id="sidebar">
   <div class="nav-brand">Nomane Belouahchi</div>
-  <div class="nav-title">Ingénieur logiciel &amp; développeur full-stack</div>
+  <div class="nav-title">Software Engineer &amp; Full-Stack Developer</div>
   <ul>
-    <li><a href="#hero" class="active"><span class="nav-dot"></span>Accueil</a></li>
-    <li><a href="#parcours"><span class="nav-dot"></span>Parcours</a></li>
-    <li><a href="#competences"><span class="nav-dot"></span>Compétences</a></li>
-    <li><a href="#projets"><span class="nav-dot"></span>Projets</a></li>
-    <li><a href="#publication"><span class="nav-dot"></span>Publication IEEE</a></li>
-    <li><a href="#formations"><span class="nav-dot"></span>Formations</a></li>
-    <li><a href="#benevole"><span class="nav-dot"></span>Bénévolat</a></li>
-    <li><a href="#voyages"><span class="nav-dot"></span>Voyages</a></li>
+    <li><a href="#hero" class="active"><span class="nav-dot"></span>Home</a></li>
+    <li><a href="#education"><span class="nav-dot"></span>Education</a></li>
+    <li><a href="#experience"><span class="nav-dot"></span>Experience</a></li>
+    <li><a href="#skills"><span class="nav-dot"></span>Skills</a></li>
+    <li><a href="#projects"><span class="nav-dot"></span>Projects</a></li>
+    <li><a href="#publication"><span class="nav-dot"></span>IEEE Publication</a></li>
+    <li><a href="#certifications"><span class="nav-dot"></span>Certifications</a></li>
+    <li><a href="#strengths"><span class="nav-dot"></span>Strengths</a></li>
+    <li><a href="#volunteering"><span class="nav-dot"></span>Volunteering</a></li>
+    <li><a href="#international"><span class="nav-dot"></span>International</a></li>
     <li><a href="#contact"><span class="nav-dot"></span>Contact</a></li>
   </ul>
   <div class="nav-footer">
-    <a href="https://github.com/Nomane033" target="_blank">GitHub</a> · Milan, Italie
+    <a href="https://github.com/Nomane033" target="_blank">GitHub</a> · Milan, Italy
   </div>
 </nav>
 
@@ -542,74 +578,69 @@
     <div class="hero-content">
       <div class="hero-status">
         <span class="dot"></span>
-        Disponible — recherche un poste en France
+        Open to opportunities
       </div>
       <h1>Nomane<br>Belouahchi</h1>
+      <div class="hero-role">Software Engineer · 2+ years of professional experience</div>
       <p class="hero-sub">
-        Ingénieur logiciel passionné par les graphiques 3D, le développement full-stack
-        et la vision par ordinateur. Double master en Géométrie &amp; Informatique Graphique,
-        publication IEEE, et expériences internationales.
+        Software engineer passionate about 3D graphics, full-stack development
+        and computer vision. Master's degrees in Computer Graphics and in
+        Distributed Systems, plus an IEEE publication.
       </p>
       <div class="hero-links">
-        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-        <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        <a href="#projects" class="btn btn-primary">View my projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
         <a href="https://github.com/Nomane033" class="btn btn-ghost" target="_blank">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- PARCOURS -->
-  <section id="parcours">
-    <div class="sec-label">Parcours</div>
-    <h2>Études, stages &amp; expériences</h2>
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="sec-label">Education</div>
+    <h2>Academic background</h2>
     <div class="timeline">
 
       <div class="tl-item">
-        <div class="tl-period">2025 — en cours · Milan, Italie</div>
-        <h3>Développeur full-stack — Stage</h3>
-        <div class="tl-place">Modern Showroom</div>
-        <div class="tl-desc">Développement d'une marketplace B2B pour la mode wholesale. Migration complète de l'application de localStorage vers Supabase, avec gestion des politiques RLS et du schéma de base de données. Stack React / Vite / TypeScript / Tailwind CSS.</div>
-        <div class="tl-tags">
-          <span class="tag tag-blue">React</span>
-          <span class="tag tag-blue">TypeScript</span>
-          <span class="tag tag-blue">Tailwind CSS</span>
-          <span class="tag tag-cyan">Supabase</span>
-          <span class="tag tag-gray">Vite</span>
-          <span class="tag tag-gray">Vercel</span>
+        <div class="tl-period">Sept 2023 – Sept 2025 · Marseille, France</div>
+        <h3>Master's in Computer Science — Geometry &amp; Computer Graphics</h3>
+        <div class="tl-place">Aix-Marseille Université</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Graphics programming, HCI, 2D/3D modeling, graphics rendering</li>
+            <li>Academic projects in C++ and OpenGL/GLSL: real-time rendering pipeline, shader management, geometric algorithms applied to 3D modeling</li>
+            <li>3D animation projects and mesh manipulation (Open3D)</li>
+          </ul>
         </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-period">2023 – 2025</div>
-        <h3>Double Master — Géométrie &amp; Informatique Graphique</h3>
-        <div class="tl-place">Aix-Marseille Université &amp; USTHB Algérie</div>
-        <div class="tl-desc">Formation avancée en rendu temps réel, shaders GLSL, pipelines GPU, animation 3D, algorithmes géométriques et vision par ordinateur. Publication d'un article IEEE sur l'extraction de caractéristiques géométriques.</div>
         <div class="tl-tags">
           <span class="tag tag-violet">C++</span>
           <span class="tag tag-violet">OpenGL / GLSL</span>
           <span class="tag tag-violet">Open3D</span>
           <span class="tag tag-cyan">OpenCV</span>
-          <span class="tag tag-gray">PyTorch</span>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-period">2022 – 2023</div>
-        <h3>Apple Foundation Program</h3>
-        <div class="tl-place">Apple / Institution partenaire</div>
-        <div class="tl-desc">Programme intensif de développement iOS. Conception et développement d'applications mobiles en Swift et SwiftUI, avec approche orientée design et expérience utilisateur.</div>
+        <div class="tl-period">Sept 2022 – Jul 2023 · Algiers, Algeria</div>
+        <h3>Master's in Computer Science — Networks &amp; Distributed Systems</h3>
+        <div class="tl-place">Université des Sciences et de la Technologie Houari Boumediene (USTHB)</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Virtualization, advanced algorithms and complexity, project management, networks and protocols</li>
+          </ul>
+        </div>
         <div class="tl-tags">
-          <span class="tag tag-gray">Swift</span>
-          <span class="tag tag-gray">SwiftUI</span>
-          <span class="tag tag-gray">iOS</span>
+          <span class="tag tag-gray">Networks</span>
+          <span class="tag tag-gray">Virtualization</span>
+          <span class="tag tag-gray">Algorithms</span>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-period">2020 – 2023</div>
-        <h3>Licence &amp; formations antérieures</h3>
-        <div class="tl-place">Informatique — Algérie</div>
-        <div class="tl-desc">Fondations en algorithmique, développement web et logiciel, bases de données. Premiers projets en C++, Java et développement web.</div>
+        <div class="tl-period">2019 – 2022 · Algiers, Algeria</div>
+        <h3>Bachelor's Degree (Licence) in Mathematics and Computer Science</h3>
+        <div class="tl-place">Université des Sciences et de la Technologie Houari Boumediene (USTHB)</div>
+        <div class="tl-desc">Foundations in algorithmics, web and software development, and databases. First projects in C++, Java and web development.</div>
         <div class="tl-tags">
           <span class="tag tag-gray">C++</span>
           <span class="tag tag-gray">Java</span>
@@ -620,96 +651,349 @@
     </div>
   </section>
 
-  <!-- COMPÉTENCES -->
-  <section id="competences">
-    <div class="sec-label">Compétences</div>
-    <h2>Domaines techniques</h2>
-    <div class="skills-grid">
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-label">Experience</div>
+    <h2>Professional experience</h2>
+    <div class="timeline">
 
-      <div class="skill-group">
-        <div class="skill-group-label">Graphique 3D &amp; rendu</div>
-        <div class="skill-tags">
-          <span class="tag tag-violet">C++</span>
-          <span class="tag tag-violet">OpenGL</span>
-          <span class="tag tag-violet">GLSL / Shaders</span>
-          <span class="tag tag-violet">Pipelines GPU</span>
-          <span class="tag tag-violet">Animation 3D</span>
-          <span class="tag tag-violet">Open3D</span>
-          <span class="tag tag-violet">Unity</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Vision par ordinateur &amp; ML</div>
-        <div class="skill-tags">
-          <span class="tag tag-cyan">OpenCV</span>
-          <span class="tag tag-cyan">PyTorch</span>
-          <span class="tag tag-cyan">scikit-learn</span>
-          <span class="tag tag-cyan">Traitement d'images</span>
-          <span class="tag tag-cyan">Nuages de points</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Développement web full-stack</div>
-        <div class="skill-tags">
+      <div class="tl-item">
+        <div class="tl-period">June 2026 — Present · Milan, Italy</div>
+        <h3>Full-Stack Developer</h3>
+        <div class="tl-place">Modern Showroom</div>
+        <div class="tl-desc">Building a B2B wholesale marketplace for the fashion industry. Led a full migration of the application from localStorage to Supabase, including RLS policy management and database schema design. Stack: React / Vite / TypeScript / Tailwind CSS.</div>
+        <div class="tl-tags">
           <span class="tag tag-blue">React</span>
           <span class="tag tag-blue">TypeScript</span>
           <span class="tag tag-blue">Tailwind CSS</span>
-          <span class="tag tag-blue">Vite</span>
-          <span class="tag tag-blue">Supabase</span>
-          <span class="tag tag-blue">Node.js</span>
-          <span class="tag tag-blue">SQL</span>
-          <span class="tag tag-blue">REST API</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">Mobile &amp; autres</div>
-        <div class="skill-tags">
-          <span class="tag tag-green">Swift / SwiftUI</span>
-          <span class="tag tag-green">iOS</span>
-          <span class="tag tag-gray">Python</span>
-          <span class="tag tag-gray">Java</span>
-          <span class="tag tag-gray">Git / GitHub</span>
+          <span class="tag tag-cyan">Supabase</span>
+          <span class="tag tag-gray">Vite</span>
           <span class="tag tag-gray">Vercel</span>
         </div>
       </div>
 
-      <div class="skill-group" style="grid-column: span 2;">
-        <div class="skill-group-label">Langues</div>
-        <div class="skill-tags">
-          <span class="tag tag-gray">Français — natif</span>
-          <span class="tag tag-gray">Arabe — natif</span>
-          <span class="tag tag-gray">Anglais — professionnel</span>
-          <span class="tag tag-gray">Italien — en cours d'apprentissage</span>
+      <div class="tl-item">
+        <div class="tl-period">Apr 2025 — Sept 2025 · Sofia, Bulgaria</div>
+        <h3>R&amp;D Engineer Intern</h3>
+        <div class="tl-place">Telecommunications Laboratory</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Conducted research leading to the publication of an IEEE scientific paper: "Extraction of Geometric Features for Grasp Modeling in 3D Environments"</li>
+            <li>Paper presented at the IEEE WPMC (Wireless Personal Multimedia Communications) conference, November 2025, Sofia</li>
+          </ul>
+        </div>
+        <div class="tl-tags">
+          <span class="tag tag-violet">Research</span>
+          <span class="tag tag-cyan">Computer Vision</span>
+          <span class="tag tag-cyan">Point Clouds</span>
+          <span class="tag tag-gray">IEEE</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">Oct 2023 — Apr 2025 · France</div>
+        <h3>Mathematics Tutor</h3>
+        <div class="tl-place">Aix-Marseille Académie</div>
+        <div class="tl-desc">Provided one-on-one and small-group tutoring in mathematics, adapting teaching methods to each student's level.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Teaching</span>
+          <span class="tag tag-gray">Mathematics</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">Sept 2022 — Jul 2023 · Algiers, Algeria</div>
+        <h3>Algorithmics &amp; Programming Tutor</h3>
+        <div class="tl-place">Zoramid Private School</div>
+        <div class="tl-desc">Taught algorithmics and object-oriented programming fundamentals to students, with a hands-on, project-based approach.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Teaching</span>
+          <span class="tag tag-gray">Algorithmics</span>
+          <span class="tag tag-gray">OOP</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">Jan 2022 — Jun 2022 · Algiers, Algeria</div>
+        <h3>Full-Stack Developer Intern</h3>
+        <div class="tl-place">SONELGAZ</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Designed and developed an internal platform for timesheet management and monitoring</li>
+            <li>Solution deployed to more than 2,000 employees of ELIT, SONELGAZ's IT subsidiary</li>
+          </ul>
+        </div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Internal Tools</span>
+          <span class="tag tag-gray">Full-Stack</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- PROJETS -->
-  <section id="projets">
-    <div class="sec-label">Projets</div>
-    <h2>Ce que j'ai construit</h2>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-label">Skills</div>
+    <h2>Technical skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-tags">
+          <span class="tag tag-blue">C++</span>
+          <span class="tag tag-blue">C#</span>
+          <span class="tag tag-blue">Python</span>
+          <span class="tag tag-blue">TypeScript</span>
+          <span class="tag tag-blue">JavaScript</span>
+          <span class="tag tag-blue">Swift</span>
+          <span class="tag tag-blue">HTML</span>
+          <span class="tag tag-blue">PHP</span>
+          <span class="tag tag-blue">CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">3D Graphics / Real-Time</div>
+        <div class="skill-tags">
+          <span class="tag tag-violet">OpenGL</span>
+          <span class="tag tag-violet">GLSL</span>
+          <span class="tag tag-violet">Shaders</span>
+          <span class="tag tag-violet">GPU Pipelines</span>
+          <span class="tag tag-violet">Open3D</span>
+          <span class="tag tag-violet">Unity</span>
+          <span class="tag tag-violet">Real-time Rendering</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Artificial Intelligence</div>
+        <div class="skill-tags">
+          <span class="tag tag-cyan">Machine Learning</span>
+          <span class="tag tag-cyan">CNNs</span>
+          <span class="tag tag-cyan">Computer Vision</span>
+          <span class="tag tag-cyan">PyTorch</span>
+          <span class="tag tag-cyan">OpenCV</span>
+          <span class="tag tag-cyan">scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Mobile Development</div>
+        <div class="skill-tags">
+          <span class="tag tag-green">Native iOS</span>
+          <span class="tag tag-green">Swift</span>
+          <span class="tag tag-green">SwiftUI</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Web Frameworks</div>
+        <div class="skill-tags">
+          <span class="tag tag-blue">Spring Boot</span>
+          <span class="tag tag-blue">Angular</span>
+          <span class="tag tag-blue">Laravel</span>
+          <span class="tag tag-blue">React</span>
+          <span class="tag tag-blue">Node.js</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Databases</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">PostgreSQL</span>
+          <span class="tag tag-gray">MySQL</span>
+          <span class="tag tag-gray">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">CI/CD</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">GitHub Actions</span>
+          <span class="tag tag-gray">GitLab CI</span>
+          <span class="tag tag-gray">Jenkins</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Systems</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Linux</span>
+          <span class="tag tag-gray">Windows</span>
+          <span class="tag tag-gray">macOS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Dev Environments</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">VS Code</span>
+          <span class="tag tag-gray">Qt Creator</span>
+          <span class="tag tag-gray">Unity</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Project Management</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">MS Project</span>
+          <span class="tag tag-gray">GitLab</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Virtualization</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">VirtualBox</span>
+          <span class="tag tag-gray">VMware</span>
+          <span class="tag tag-gray">Windows Server 2012</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Office Tools</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Microsoft Office</span>
+          <span class="tag tag-gray">Google Workspace</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Scientific Documents</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">LaTeX</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Networking</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Cisco Packet Tracer</span>
+          <span class="tag tag-gray">Audacity</span>
+          <span class="tag tag-gray">Wireshark</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Design</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Figma</span>
+          <span class="tag tag-gray">Canva</span>
+          <span class="tag tag-gray">CapCut</span>
+          <span class="tag tag-gray">Photoshop</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Other</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Driving License (Category B)</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="grid-column: span 2;">
+        <div class="skill-group-label">Languages Spoken</div>
+        <div class="skill-tags">
+          <span class="tag tag-gray">French — native</span>
+          <span class="tag tag-gray">Arabic — native</span>
+          <span class="tag tag-gray">English — B2 (professional)</span>
+          <span class="tag tag-gray">Italian — learning</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="sec-label">Projects</div>
+    <h2>What I've built</h2>
     <div class="projects-list">
 
       <div class="project-card">
         <div class="project-header">
-          <h3>Modern Showroom — Marketplace B2B</h3>
-          <div class="project-links">
-            <a href="https://wholesale-marketplace-two.vercel.app" class="project-link" target="_blank">Demo</a>
-            <a href="https://github.com/Nomane033/wholesale-marketplace" class="project-link" target="_blank">GitHub</a>
-          </div>
+          <h3>Modern Showroom — B2B Marketplace</h3>
         </div>
-        <p class="project-desc">Application web de vente en gros pour l'industrie de la mode. Migration complète de localStorage vers Supabase avec gestion fine des droits d'accès (RLS), catalogue produits, gestion des commandes et interface acheteur/vendeur.</p>
+        <div class="project-period">June 2026 — Present</div>
+        <p class="project-desc">A wholesale web application for the fashion industry, with fine-grained access control (RLS) on Supabase, a product catalog, order management, and a buyer/seller interface. Codebase and demo confidential to the company.</p>
         <div class="tl-tags">
           <span class="tag tag-blue">React</span>
           <span class="tag tag-blue">TypeScript</span>
           <span class="tag tag-cyan">Supabase</span>
           <span class="tag tag-blue">Tailwind CSS</span>
           <span class="tag tag-gray">Vite</span>
+          <span class="tag tag-gray">Confidential</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Geometric Feature Extraction</h3>
+          <div class="project-links">
+            <a href="#publication" class="project-link">IEEE Publication</a>
+          </div>
+        </div>
+        <div class="project-period">Apr 2025 — Sept 2025</div>
+        <p class="project-desc">A research project carried out at a telecommunications laboratory, leading to an IEEE publication. Developed algorithms for geometric feature extraction on 3D point clouds, combining geometric processing and computer vision. Implementation details confidential to the laboratory.</p>
+        <div class="tl-tags">
+          <span class="tag tag-violet">C++</span>
+          <span class="tag tag-cyan">Open3D</span>
+          <span class="tag tag-cyan">OpenCV</span>
+          <span class="tag tag-gray">Research</span>
+          <span class="tag tag-gray">Confidential</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>G-Code Generation Algorithm for 3D Printing</h3>
+        </div>
+        <div class="project-period">Oct 2024 — Mar 2025 · Master's Thesis Project</div>
+        <p class="project-desc">Developed a G-code generation algorithm for 3D printing in Python, tested on a Prusa printer.</p>
+        <div class="tl-tags">
+          <span class="tag tag-blue">Python</span>
+          <span class="tag tag-gray">G-code</span>
+          <span class="tag tag-gray">3D Printing</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Ping-Pong Game</h3>
+        </div>
+        <div class="project-period">Jan 2024 · Software Engineering Project (Master's)</div>
+        <p class="project-desc">Programmed the different game engines in Java, developed using an Agile methodology.</p>
+        <div class="tl-tags">
+          <span class="tag tag-blue">Java</span>
+          <span class="tag tag-gray">Agile</span>
+          <span class="tag tag-gray">Game Dev</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Faculty of Computer Science Unit Administration</h3>
+        </div>
+        <div class="project-period">Apr 2023 · Virtual Client-Server Environment</div>
+        <p class="project-desc">Administered and managed services on Windows Server 2012 in a virtualized client-server environment.</p>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Windows Server 2012</span>
+          <span class="tag tag-gray">Virtualization</span>
+          <span class="tag tag-gray">System Administration</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Mini Compiler using Flex &amp; Bison</h3>
+        </div>
+        <div class="project-period">Feb 2023</div>
+        <p class="project-desc">Built a mini compiler using the Flex lexical analyzer and Bison parser generator.</p>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Flex</span>
+          <span class="tag tag-gray">Bison</span>
+          <span class="tag tag-gray">Compilers</span>
         </div>
       </div>
 
@@ -717,31 +1001,16 @@
         <div class="project-header">
           <h3>Roller Coaster VR</h3>
           <div class="project-links">
-            <a href="https://itch.io" class="project-link" target="_blank">itch.io</a>
+            <a href="https://rezioz.itch.io/roller-coaster" class="project-link" target="_blank">itch.io</a>
           </div>
         </div>
-        <p class="project-desc">Expérience de réalité virtuelle immersive de montagnes russes, publiée sur itch.io. Développée avec Unity, exploitant des techniques de rendu temps réel et d'optimisation de scènes 3D pour une expérience VR fluide.</p>
+        <div class="project-period">Jan 2023 — Jun 2023</div>
+        <p class="project-desc">An immersive virtual reality roller coaster experience, published on itch.io. Built with Unity, using real-time rendering techniques and 3D scene optimization for a smooth VR experience.</p>
         <div class="tl-tags">
           <span class="tag tag-violet">Unity</span>
           <span class="tag tag-violet">C#</span>
           <span class="tag tag-violet">VR</span>
-          <span class="tag tag-gray">Rendu temps réel</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Extraction de caractéristiques géométriques</h3>
-          <div class="project-links">
-            <a href="#publication" class="project-link">Publication IEEE</a>
-          </div>
-        </div>
-        <p class="project-desc">Projet de recherche académique ayant abouti à une publication IEEE. Développement d'algorithmes d'extraction de caractéristiques géométriques sur nuages de points 3D, combinant traitement géométrique et vision par ordinateur.</p>
-        <div class="tl-tags">
-          <span class="tag tag-violet">C++</span>
-          <span class="tag tag-cyan">Open3D</span>
-          <span class="tag tag-cyan">OpenCV</span>
-          <span class="tag tag-gray">Recherche</span>
+          <span class="tag tag-gray">Real-time Rendering</span>
         </div>
       </div>
 
@@ -750,41 +1019,40 @@
 
   <!-- PUBLICATION -->
   <section id="publication">
-    <div class="sec-label">Publication scientifique</div>
-    <h2>Article IEEE</h2>
+    <div class="sec-label">Scientific Publication</div>
+    <h2>IEEE Paper</h2>
     <div class="pub-card">
-      <div class="pub-venue">IEEE — Conférence internationale</div>
-      <h3>Geometric Feature Extraction on 3D Point Clouds</h3>
+      <div class="pub-venue">IEEE WPMC 2025 — Sofia, Bulgaria</div>
+      <h3>Geometric Feature Extraction for Robust Grasp Modeling in 3D Environments</h3>
       <p class="pub-desc">
-        Article de recherche portant sur l'extraction automatique de caractéristiques géométriques
-        à partir de nuages de points 3D. Travaux menés dans le cadre du Master en Géométrie
-        &amp; Informatique Graphique, à la croisée des algorithmes géométriques et de la vision
-        par ordinateur.
+        A research paper on the automatic extraction of geometric features from 3D point clouds,
+        carried out during an R&amp;D internship at a telecommunications laboratory in Sofia.
+        Presented at the IEEE WPMC (Wireless Personal Multimedia Communications) conference,
+        November 2025.
       </p>
       <div class="tl-tags" style="margin-top: 1rem;">
-        <span class="tag tag-violet">Géométrie computationnelle</span>
-        <span class="tag tag-cyan">Nuages de points</span>
+        <span class="tag tag-violet">Computational Geometry</span>
+        <span class="tag tag-cyan">Point Clouds</span>
         <span class="tag tag-cyan">Open3D</span>
-        <span class="tag tag-gray">Recherche académique</span>
+        <span class="tag tag-gray">Academic Research</span>
       </div>
     </div>
     <p style="margin-top: 1rem; font-size: 0.8rem;">
-      <!-- Ajoute ici le DOI ou le lien IEEE quand tu l'as -->
-      Lien DOI / IEEE disponible sur demande.
+      <a href="https://www.researchgate.net/publication/397642289_Geometric_Feature_Extraction_for_Robust_Grasp_Modeling_in_3D_Environments" target="_blank" style="color: var(--blue);">View the paper on ResearchGate</a>
     </p>
   </section>
 
-  <!-- FORMATIONS COMPLÉMENTAIRES -->
-  <section id="formations">
-    <div class="sec-label">Formations complémentaires</div>
-    <h2>Certifications &amp; programmes</h2>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="sec-label">Certifications &amp; Training</div>
+    <h2>Programs &amp; certificates</h2>
     <div class="timeline">
 
       <div class="tl-item">
-        <div class="tl-period">2022 – 2023</div>
+        <div class="tl-period">2026</div>
         <h3>Apple Foundation Program</h3>
-        <div class="tl-place">Apple — Programme certifiant</div>
-        <div class="tl-desc">Formation intensive au développement d'applications iOS. Approche centrée sur le design thinking, Swift, SwiftUI, et les bonnes pratiques de l'écosystème Apple.</div>
+        <div class="tl-place">Apple — Certified Program</div>
+        <div class="tl-desc">Intensive training in iOS application development. Design-thinking-centered approach covering Swift, SwiftUI, and Apple ecosystem best practices.</div>
         <div class="tl-tags">
           <span class="tag tag-gray">Swift</span>
           <span class="tag tag-gray">SwiftUI</span>
@@ -793,68 +1061,105 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-period">En continu</div>
-        <h3>Auto-formation &amp; veille technologique</h3>
-        <div class="tl-place">Machine learning, IA générative, outils no-code/AI</div>
-        <div class="tl-desc">Exploration des outils de génération vidéo par IA (InVideo AI, Pictory, HeyGen), des architectures de modèles de langage, et des tendances en informatique graphique.</div>
+        <div class="tl-period">2020 – 2023</div>
+        <h3>Intensive English Language Training</h3>
+        <div class="tl-place">Centre Intensif des Langues Étrangères</div>
+        <div class="tl-desc">Intensive English program; achieved B2 proficiency level.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">English</span>
+          <span class="tag tag-gray">B2 Level</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">Ongoing</div>
+        <h3>Self-Learning &amp; Technology Watch</h3>
+        <div class="tl-place">Machine learning, generative AI, no-code/AI tools</div>
+        <div class="tl-desc">Exploring AI video generation tools (InVideo AI, Pictory, HeyGen), language model architectures, and trends in computer graphics.</div>
         <div class="tl-tags">
           <span class="tag tag-gray">PyTorch</span>
-          <span class="tag tag-gray">IA générative</span>
-          <span class="tag tag-gray">Veille tech</span>
+          <span class="tag tag-gray">Generative AI</span>
+          <span class="tag tag-gray">Tech Watch</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- BÉNÉVOLAT -->
-  <section id="benevole">
-    <div class="sec-label">Engagement</div>
-    <h2>Bénévolat</h2>
-    <div class="grid-2">
-      <div class="info-card">
-        <h3>Tutorat académique</h3>
-        <p>Accompagnement d'étudiants en informatique sur des sujets comme les algorithmes, la programmation orientée objet et le développement web. Pédagogie adaptée au niveau de chaque étudiant.</p>
-        <div class="tl-tags" style="margin-top: 0.75rem;">
-          <span class="tag tag-gray">Enseignement</span>
-          <span class="tag tag-gray">C++</span>
-          <span class="tag tag-gray">Web</span>
-        </div>
-      </div>
-      <div class="info-card">
-        <h3>Communauté &amp; projets open</h3>
-        <p>Participation à des projets collaboratifs, partage de ressources techniques, et contribution à la communauté étudiante en informatique graphique.</p>
-        <div class="tl-tags" style="margin-top: 0.75rem;">
-          <span class="tag tag-gray">Open source</span>
-          <span class="tag tag-gray">Collaboration</span>
-        </div>
-      </div>
+  <!-- STRENGTHS -->
+  <section id="strengths">
+    <div class="sec-label">Strengths</div>
+    <h2>What I bring</h2>
+    <div class="strengths-list">
+      <span class="strength-chip">Learning ability</span>
+      <span class="strength-chip">Communication &amp; adaptability</span>
+      <span class="strength-chip">Analytical mindset</span>
+      <span class="strength-chip">Teamwork / project-based work</span>
+      <span class="strength-chip">International mobility (France, Italy, Bulgaria, Algeria)</span>
     </div>
-    <p style="margin-top: 1.25rem; font-size: 0.8rem; color: var(--muted);">
-      Tu peux compléter cette section avec des associations, événements ou missions spécifiques.
-    </p>
   </section>
 
-  <!-- VOYAGES -->
-  <section id="voyages">
-    <div class="sec-label">Mobilité internationale</div>
-    <h2>Voyages &amp; expériences à l'étranger</h2>
+  <!-- VOLUNTEERING -->
+  <section id="volunteering">
+    <div class="sec-label">Volunteering</div>
+    <h2>Community involvement</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-period">2018 – 2023 · Algiers, Algeria</div>
+        <h3>Scout — Leader</h3>
+        <div class="tl-place">Algerian Scouts</div>
+        <div class="tl-desc">Leading and mentoring youth activities as part of the scouting movement.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Leadership</span>
+          <span class="tag tag-gray">Youth Mentoring</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2023 – 2025 · La Ciotat, France</div>
+        <h3>Volunteer — Community Events</h3>
+        <div class="tl-place">Mission Locale</div>
+        <div class="tl-desc">Took part in several volunteer missions during local community events.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Community Engagement</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-period">2019 – 2023 · Algiers, Algeria</div>
+        <h3>Member — "Project Initiative" University Club</h3>
+        <div class="tl-place">University Club</div>
+        <div class="tl-desc">Took part in eco-environmental activities, challenges, and anti-pollution campaigns.</div>
+        <div class="tl-tags">
+          <span class="tag tag-gray">Environment</span>
+          <span class="tag tag-gray">Community Engagement</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section id="international">
+    <div class="sec-label">International Experience</div>
+    <h2>Living &amp; working abroad</h2>
     <div class="grid-2">
       <div class="info-card">
-        <h3>🇮🇹 Milan, Italie</h3>
-        <p>Stage de 5 mois chez Modern Showroom, dans le quartier Città Studi. Immersion complète dans l'environnement professionnel et culturel italien.</p>
+        <h3>🇮🇹 Milan, Italy</h3>
+        <p>Working as a Full-Stack Developer at Modern Showroom. Full immersion in the Italian professional and cultural environment.</p>
       </div>
       <div class="info-card">
         <h3>🇫🇷 Marseille, France</h3>
-        <p>Double diplôme à Aix-Marseille Université. Expérience de vie et d'études dans le cadre d'un master franco-algérien en cotutelle.</p>
+        <p>Master's degree at Aix-Marseille Université. Lived and studied in France.</p>
       </div>
       <div class="info-card">
-        <h3>🇩🇿 Algérie</h3>
-        <p>Formation universitaire à l'USTHB, l'une des grandes écoles d'ingénieurs d'Algérie. Ancrage culturel fort et réseau académique solide.</p>
+        <h3>🇧🇬 Sofia, Bulgaria</h3>
+        <p>R&amp;D engineering internship at a telecommunications laboratory, leading to an IEEE publication presented at IEEE WPMC 2025.</p>
       </div>
       <div class="info-card">
-        <h3>🌍 Mobilité &amp; adaptabilité</h3>
-        <p>À l'aise pour naviguer de façon autonome dans des environnements nouveaux. Ouverture à des postes en France et à l'international.</p>
+        <h3>🇩🇿 Algiers, Algeria</h3>
+        <p>University education at USTHB, one of Algeria's leading engineering schools. Strong cultural roots and academic network.</p>
       </div>
     </div>
   </section>
@@ -862,24 +1167,28 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="sec-label">Contact</div>
-    <h2>Parlons-nous</h2>
-    <p style="margin-bottom: 1.5rem;">Je suis actuellement en recherche d'emploi en France. N'hésitez pas à me contacter pour toute opportunité.</p>
+    <h2>Let's talk</h2>
+    <p style="margin-bottom: 1.5rem;">I'm currently open to opportunities internationally. Feel free to reach out.</p>
     <div class="contact-grid">
-      <a href="mailto:nomane.belouahchi@gmail.com" class="contact-item">
+      <a href="mailto:belouahchinomane2001@gmail.com" class="contact-item">
         <div class="contact-item-label">Email</div>
-        <div class="contact-item-value">nomane.belouahchi<br>@gmail.com</div>
+        <div class="contact-item-value">belouahchinomane2001<br>@gmail.com</div>
+      </a>
+      <a href="tel:+33783071690" class="contact-item">
+        <div class="contact-item-label">Phone</div>
+        <div class="contact-item-value">+33 7 83 07 16 90</div>
       </a>
       <a href="https://github.com/Nomane033" class="contact-item" target="_blank">
         <div class="contact-item-label">GitHub</div>
         <div class="contact-item-value">Nomane033</div>
       </a>
-      <a href="https://linkedin.com" class="contact-item" target="_blank">
+      <a href="https://www.linkedin.com/in/nomane-belouahchi/" class="contact-item" target="_blank">
         <div class="contact-item-label">LinkedIn</div>
-        <div class="contact-item-value">Ajoute ton profil LinkedIn ici</div>
+        <div class="contact-item-value">nomane-belouahchi</div>
       </a>
       <div class="contact-item">
-        <div class="contact-item-label">Localisation</div>
-        <div class="contact-item-value">Milan → France<br>(dispo dès fin du stage)</div>
+        <div class="contact-item-label">Location</div>
+        <div class="contact-item-value">Milan, Italy<br>Open to relocation</div>
       </div>
     </div>
   </section>
@@ -887,7 +1196,7 @@
 </main>
 
 <script>
-// ── CANVAS HERO (grille géométrique animée, hommage OpenGL) ──
+// ── HERO CANVAS (animated geometric grid, OpenGL tribute) ──
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, points = [], animId;
@@ -926,7 +1235,7 @@ function draw(t) {
   });
 
   const cols = 14;
-  // Lignes horizontales
+  // Horizontal lines
   for (let j = 0; j <= 10; j++) {
     ctx.beginPath();
     for (let i = 0; i <= cols; i++) {
@@ -938,7 +1247,7 @@ function draw(t) {
     ctx.stroke();
   }
 
-  // Lignes verticales
+  // Vertical lines
   for (let i = 0; i <= cols; i++) {
     ctx.beginPath();
     for (let j = 0; j <= 10; j++) {
@@ -950,7 +1259,7 @@ function draw(t) {
     ctx.stroke();
   }
 
-  // Points aux intersections
+  // Intersection points
   points.forEach((p, i) => {
     if (i % 7 === 0) {
       ctx.beginPath();
@@ -968,7 +1277,7 @@ initPoints();
 requestAnimationFrame(draw);
 window.addEventListener('resize', () => { resize(); initPoints(); });
 
-// ── NAV ACTIVE SCROLL ──
+// ── ACTIVE NAV ON SCROLL ──
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav ul li a');
 
